@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>typeof(类型转换)</title>
+</head>
+
+<body>
+<input type="text" value="10" id="mytext">
+<script>
+    /*  var a;
+     alert(typeof a);
+     var b="1321321";
+     alert(typeof b);
+
+     var num=0.93090324;
+     alert(typeof num);*/
+
+    var myValue = mytext.value;
+    var inum = parseInt(myValue);
+    inum += 10;
+    alert(inum);
+    //转义
+    alert("\"");
+    var iNumE=1.23456789;
+    var iNumE2=iNumE.toFixed(2);
+    //alert(iNumE2);
+    //alert(iNumE);
+    var b1=true;
+    var b2=false;
+    var b3=b1||b2;
+
+    var i1=1;
+    i1++;
+    i1--;i1=i1-1;
+    alert(i1);
+
+
+
+</script>
+
+</body>
+</html>
