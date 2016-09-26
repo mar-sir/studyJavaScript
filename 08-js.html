@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>调用</title>
+</head>
+<body>
+<p id="pra" style="background: rosybrown"></p>
+
+<input type="text" style="border: 2px;background: royalblue" id="txt">
+<input type="button" style="border: blueviolet" value="提交" onclick="submit()">
+
+<p>判断闰年</p>
+<br>
+<input type="text" id="year">
+<input type="button" value="测试" onclick="juage()">
+<script>
+    function submit() {
+        var txt = document.getElementById("txt");
+        var txtValue = txt.value;
+        document.getElementById("pra").innerHTML=txtValue;
+    }
+
+    function juage(){
+        var num=document.getElementById("year").value;
+        if(!isNaN(num)){
+          if(testYear(num)){
+              alert(num+"是闰年!");
+          }else{
+              alert("不是闰年!");
+          }
+        }else{
+            alert("请输入数字!");
+        }
+        var tag=testYear(num);
+    }
+    function  testYear(num){
+          var tag=false;
+        if((num%4==0&&num%100!=0)||(num%400==0&&num%100==0)){
+            tag=true;
+        }
+         return tag;
+    }
+</script>
+
+</body>
+</html>
