@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>闭包</h1>
+<p>
+
+    当内部函数 在定义它的作用域 的外部 被引用时,就创建了该内部函数的闭包 ,如果内部函数引用了位于外部函数的变量,当外部函数调用完毕后,这些变量在内存不会被 释放,因为闭包需要它们.</p>
+
+<p>各种专业文献上的“闭包”（closure）定义非常抽象，很难看懂。我的理解是，闭包就是能够读取其他函数内部变量的函数。
+   <br/> 由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成“定义在一个函数内部的函数”。
+    所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
+
+<script>
+    function fnc(a,b){
+        function fnE(c){
+            a++;
+            b++;
+            return a+b+c;
+        }
+        return fnE;
+    }
+    var  fnc1=fnc(1,2);
+    alert(fnc1(3));//2,3
+    alert(fnc1(4));//3,4
+    alert(fnc1(5));//4,5
+
+    var fnc2=fnc(1,2);
+    alert(fnc2(6));//2,3
+
+</script>
+
+</body>
+</html>
