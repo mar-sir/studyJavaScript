@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+  用户名：<input type="text" id="name"/>
+  <br/>
+  密&nbsp;码: <input type="password" id="psw" />
+<input type="button" id="btn" value="登录"/>
+<script>
+    var name=document.getElementById("name");
+    var psw=document.getElementById("psw");
+    var btn=document.getElementById("btn");
+    btn.onclick=function(){
+        var flag=true;
+        var pw=psw.value;
+        var name=name.value;
+        var uName="happy";
+        var P="123";
+        if(name!=uName){
+            flag=false;
+            alert("用户名错误");
+        }
+        if(pw!=P){
+            flag=false;
+            alert("密码错误");
+        }
+        if(flag){
+            alert("登录成功");
+        }
+    }
+
+</script>
+
+</body>
+</html>

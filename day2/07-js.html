@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>匿名函数</h1>
+<script>
+    var p1=1;
+    var p2=2;
+
+    function add(a,b){
+        return a+b;
+    }
+
+    function sub(a,b){
+        return a-b;
+    }
+
+    function match(fn,p1,p2){
+        fn(a,b);
+    }
+    document.write(match(add,p1,p2));
+    document.writeln(match(sub,p1,p2));
+
+    function mul(a,b){
+        return a*b;
+    }
+
+    var result=match(mul,p1,p2);
+    var result2=match(mul,1,2);
+
+    document.writeln("mul"+result);
+    document.writeln("mul"+result2);
+
+    var result2=math(function(a,b){
+        return a/b;
+    },1,2);
+    var fn=function(a,b){
+        return a%b;
+    }
+</script>
+
+</body>
+</html>
