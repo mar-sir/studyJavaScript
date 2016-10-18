@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>String 统计字符个数</title>
+</head>
+<body>
+<script>
+    var s="aaabbccd";
+    var arr=[];
+    var a= s.split("a");
+    var  num1={
+        name:"a",
+        cnt: a.length-1
+    };
+    arr.push(num1);
+
+    var b= s.split("b");
+    var num2={
+        name:"b",
+        cnt: b.length-1
+    }
+    arr.push(num2);
+    var c= s.split("c");
+    var num3={
+        name:"c",
+        cnt: c.length-1
+    }
+    arr.push(num3);
+    var d= s.split("d");
+    var num4={
+        name:"d",
+        cnt: d.length-1
+    }
+    arr.push(num4);
+    for(var i=0;i<arr.length;i++){
+        document.write(arr[i].name+" "+arr[i].cnt+"<br/>");
+    }
+    s="";
+    for(var j=0;j<arr.length;j++){
+        s+=arr[j].name;
+    }
+    alert(s);
+
+</script>
+
+</body>
+</html>

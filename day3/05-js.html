@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>字符串提取</title>
+</head>
+<body>
+<script>
+    var sYou="This a list of items : cherries,   limes,   oranges,    apples ,apples .    this  list end.";
+    var startIndex=sYou.indexOf(":");
+    console.log(startIndex);
+    var endIndex=sYou.indexOf(".");
+    console.log(endIndex);
+
+    var subStr=sYou.substring(startIndex+1,endIndex);
+    console.log(subStr);
+
+    var arrSubStr=subStr.split(",")
+    console.log(arrSubStr);
+
+    for(var i=0;i<arrSubStr.length;i++){
+        arrSubStr[i]=arrSubStr[i].trim();
+    }
+    console.log(arrSubStr);
+
+
+</script>
+
+</body>
+</html>

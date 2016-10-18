@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>字符串提取</title>
+</head>
+<body>
+<script>
+    var sYou="This a list of items : cherries,   limes,   oranges,    apples ,apples,apples .    this  list end.";
+    var firstIndex=sYou.indexOf("apples");//
+    console.log(firstIndex);//56
+    var subStrPre=sYou.substring(0,firstIndex+6);//This a list of items : cherries,   limes,   oranges,    apples
+    console.log(subStrPre);
+    var subStrNext=sYou.substring(firstIndex+6);// ,apples,apples .    this  list end.
+    console.log(subStrNext);
+
+    var subStrNext=subStrNext.replace("apples","Bananas");
+    console.log(subStrNext);
+    var sYouNew=subStrPre.concat(subStrNext);
+    console.log(sYouNew);
+
+    var arrSubStr=sYou.split("apples");
+
+    console.log("chun--->"+arrSubStr);
+
+    var sYouNew="";
+    for(var i=0;i<arrSubStr.length;i++){
+        if(i==arrSubStr.length-1){
+            sYouNew+=arrSubStr[i];
+        }else if(i==1){
+            sYouNew+=arrSubStr[i]+"Bananas";
+        }else{
+            sYouNew+=arrSubStr[i]+"apples";
+        }
+    }
+    console.log("lei--->"+sYouNew);
+
+
+</script>
+
+</body>
+</html>

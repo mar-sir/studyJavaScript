@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>String 方法</title>
+</head>
+<body>
+<script>
+    var sDem="abcd";
+    var c1=sDem.charAt(2);
+    var cc1=sDem.charCodeAt(2);
+    console.log(c1);
+    console.log(cc1);
+
+    var cc11=String.fromCharCode(68);
+    console.log(cc11);
+    console.log(sDem[0]);//a
+
+    var s=sDem.concat("EFG");////abCdEFG;
+    console.log(s);
+
+    var sIndex= s.indexOf("EF",0);//4第一次出现的下标
+
+    console.log(sIndex);
+    var ss="abcd";
+    var arrS= ss.split("b");//["a","cd"]
+    console.log(arrS);
+    var arrSS= ss.split("d");//["abc",""]
+    console.log(arrSS);
+
+    ss.replace("a","A");
+    var ssNew=ss.replace("abc","ABC");
+    console.log(ssNew);
+    var x;
+    var y
+    if((x=10)||(y=20)){
+        alert(x);//10
+        alert(y);//undefine
+        alert(x+y);//NaN
+        alert(y);
+    }
+
+    //NaN
+    var s;
+    if(typeof s=="string"&& s.length>0){
+
+    }
+</script>
+
+</body>
+</html>

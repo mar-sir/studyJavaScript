@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>日期操作</title>
+
+</head>
+<body>
+<input id="txt" type="txt" value="2001" />
+<input id="btn" type="button" value="判断"/>
+
+<script>
+var txt=document.getElementById("txt");
+    var btn=document.getElementById("btn");
+
+    btn.onclick=function() {
+        var date = new Date();
+        date.setFullYear(txt.value);
+        var year = parseInt(date.getFullYear());
+        console.log("year" + year);
+
+        if (date.juge(year)) {
+            alert("闰年");
+        } else {
+            alert("平年");
+        }
+    }
+
+        Date.prototype.juge=function(year){
+            if(year%4==0&&year%100!=0||year%400==0){
+                return true;
+            }
+            return false;
+        }
+
+        Date.prototype.getStringDate=function(year,month,dat,day,str){
+            var  date=new Date(Date.UTC(year,month,dat,day,08,00))
+            var strDate=date.toLocaleDateString();
+            var newDate=strDate.split("/");
+            var str=newDate.join("-");
+            alert(str);
+
+        }
+        var da=new Date();
+        da.getStringDate(2015,3,8,5,"-");
+        Date.prototype.getMonthDay=function(year,month){
+            var pDay=[31,28,31,30,31,30,31,31,30,31,30,31]
+            var yDay=[31,29,31,30,31,30,31,31,30,31,30,31]
+            var date=new Date();
+            if(date.judge(year)) {
+                alert(yDay[month-1]);
+            }
+            else
+                alert(pDay[month-1]);
+        }
+        da.getMonthDay(2008,2);
+        Date.prototype.toNewDate=function(date,str){
+            var newDate=new Date()
+            var s=date.split(str);
+            newDate.setFullYear(s[0]);
+            newDate.setMonth(s[1]-1);
+            newDate.setDate(s[2]);
+            alert(newDate);
+        }
+        da.toNewDate("2018-3-28","-");
+        Date.prototype.getAfterNDate=function(n){
+            var date=new Date();
+            date.setDate(date.getDate()+n);
+            alert(date);
+        }
+        da.getAfterNDate(9);
+        Date.prototype.dateSpace=function(start,end){
+            var sDate=new Date(start);
+            var eDate=new Date(end);
+            var y=eDate.getFullYear()-sDate.getFullYear();
+            var m=eDate.getMonth()-sDate.getMonth();
+            var d=eDate.getDate()-sDate.getDate();
+            var day=eDate.getDay()-sDate.getDay();
+            var hours=eDate.getHours()-sDate.getHours();
+            var min=eDate.getMinutes()-sDate.getMinutes();
+            var se=eDate.getSeconds()-sDate.getSeconds();
+            alert(y+"年"+m+"月"+d+"日"+hours+"时"+min+"分"+se+"秒");
+        }
+        da.dateSpace("2018 3 18","2018 4 18");
+
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>字符串初始化</title>
+</head>
+<body>
+<script>
+    var sName = "John";
+    var aClass = "shabi";
+    var sgtr = "onClick=‘function()'";
+    var str = "onclick=\"fn()\"";
+    alert(typeof  str);
+    alert(str);
+    alert(str.length);
+    alert(str.charAt(5));
+    alert(str.charCodeAt(5));//返回指定位置的字符的ACII
+
+    var sc = String.fromCharCode(99);//c,将ASCII转换为字符
+
+    var strSub1 = str.substr(1, 5);//nclik子符串截取
+    var strSub2 = str.substr(1);//ncilk="fn()"从1位置开始截取到末尾
+    var strSub3 = str.substr(-4);//n()" 下标从1开始 从右往左第四个位置开始到字符串结束*/
+
+    var strSubs = str.substring(1, 2);//n  从下标1开始到2结束  不包含2位置的字符
+    var strSubs2 = str.substring(0);//从下标0开始到结束
+    var strSubs3 = str.substring(-2);//从下标0开始到结束   位置取负值无论值是多少都是从0开始到结束
+    alert(srtSubs3);
+
+    var sts1 = "20-zs";
+
+    var aItem = sts1.split("-");//aItem[0]=20;aItem[1]=zs;
+    var aItem2 = sts1.split("&");//aItem[0]="20-zs";
+    var aItem3 = sts1.split("20-zs");//aItem[0]="";aItem[1]="";
+
+    var sts2 = "&20-zs&";
+    var aIt = sts2.split("&");
+    aItem[0] = "";
+    aItem[1] = "20-zs";
+    aItem[2] = ""
+
+    var sts3 = aItem.join("&");//20&zs;
+
+    /*var strName=new String();//Math   Date  Number
+     alert(typeof strName);//object*/
+
+
+</script>
+</body>
+</html>
