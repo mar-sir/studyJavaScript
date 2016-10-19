@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组方法实现</title>
+</head>
+<body>
+<script>
+    var arr=[1,2,3];
+    arr.unshift(4);
+
+    alert(arr);
+    function unShift(arr,item) {
+        for(var i=arr.length;i>0;i--){
+            arr[i]=arr[i-1];
+        }
+        arr[0]=item;
+    }
+    unShift(arr,5);
+    alert(arr);
+
+    var arr1=[];
+    arr1[0]=1;
+    arr1.push(2);
+    arr1[0]=2;
+    arr1[10]=10;
+    alert(arr1);
+
+
+
+
+    var s=[17,27,37,47,57,67,77,87,97,71,72,73,74,75,76,78,79];
+
+    for(var i=0;i<=100;i++){
+        if(i%7==0){
+            document.write(i+" ");
+        }
+        for(var j=0;j<s.length;j++){
+            if(i==s[j]){
+                document.write("<br/>")
+                document.write(i+" ");
+                break;
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

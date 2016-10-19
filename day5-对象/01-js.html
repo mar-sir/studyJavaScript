@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+</head>
+<body>
+<script>
+    var aItem=[1,2,3,4,10,11,12,13];
+    for(var i=0;i<aItem.length;i++){
+        if(aItem[i]>5){
+            aItem.splice(i,1);
+            i--;
+        }
+    }
+    alert(aItem);
+    function cmp(a,b) {
+        return a-b;
+    }
+    aItem.sort(cmp);
+
+    /////////////
+
+    var oStudent=[];
+    oStudent.push({
+        name:"Johsadn",
+        age:5
+    });
+    oStudent.push({
+        name:"Johsadn1",
+        age:25
+    });
+    oStudent.push({
+        name:"Johsadn2",
+        age:30
+    });
+    oStudent.push({
+        name:"Johsadn3",
+        age:12
+    }); oStudent.push({
+        name:"Johsadn4",
+        age:32
+    }); oStudent.push({
+        name:"Johsadn5",
+        age:20
+    }); oStudent.push({
+        name:"Johsadn6",
+        age:54
+    });
+
+    function cmp(a ,b) {
+        if(a.age!=b.age){
+            return a.age-b.age;
+        }else{
+            a.name-b.name;
+        }
+    }
+
+    oStudent.sort(cmp);
+    for(var i=0;i<5;i++){
+        document.write(oStudent[i].name+" "+oStudent[i].age);
+        document.write("<br>");
+    }
+
+
+
+</script>
+
+</body>
+</html>

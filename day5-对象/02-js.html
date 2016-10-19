@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象构造函数</title>
+</head>
+<body>
+<script>
+    var person1={
+        name:"张三",
+        age:20,
+        showName:function () {
+            alert(this.name);
+        }
+    }
+
+    var person2={
+        name:"李四",
+        age:200,
+        showName:function () {
+            alert(this.name);
+        }
+    }
+
+
+    function  createPerson(name,age) {
+        var person=new Object();
+        person.name=name;
+        person.age=age;
+        person.showName=function () {
+            alert(this.name);
+        }
+        person.showAge=function () {
+            alert(this.age);
+        }
+        return person;
+    }
+     var person3=createPerson("王五",23);
+    var person4=createPerson("赵六",10);
+
+    person1.showName();//
+  //  person1.showAge(); error,不存在此方法
+    person2.showName();
+    person3.showName();
+    person3.showAge();
+    person4.showName();
+    person4.showAge();
+
+
+    function Person(name,age) {
+        this.age=age;
+        this.name=name;
+        this.showName=function () {
+            alert(this.name);
+        }
+        this.showInfo=function () {
+            alert(this.name+" "+this.age);
+        }
+    }
+
+    var person5=new Person("马七",10);
+    var person6=new Person("陈八",9);
+
+    person5.showName();
+    person5.showInfo();
+
+    person6.showName();
+    person6.showInfo();
+
+    var person7=new Person("刘东",20);
+    person7.showName();
+
+
+    alert(person5 instanceof  Person);//实例 true
+    alert(person5 instanceof  Object);// true
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

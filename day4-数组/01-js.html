@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数组属性</title>
+</head>
+<body>
+<div id="div1" style="background: #f85;width: 1000px">姓名</div>
+<input id="bt1" type="button" value="开始1">
+<input id="btn11" type="button" value="开始10">
+<script>
+    window.onload= function () {
+        var arrName = ["九纹龙 史进"
+            , "神机军师 朱武",
+            " 跳涧虎 陈达",
+            " 白花蛇 杨春",
+            "花和尚 鲁智深",
+            "打虎将 李忠",
+            "小霸王 周通 ",
+            "豹子头 林冲 ",
+            " 小旋风 柴进",
+            " 旱地忽律 朱贵 ",
+            " 摸着天 杜迁",
+            " 云里金刚 宋万 ",
+            " 青面兽 杨志 ",
+            " 急先锋 索超 ",
+            " 美髯公 朱仝 ",
+            " 插翅虎 雷横 ",
+            " 赤发鬼 刘唐",
+            " 智多星 吴用",
+            "立地太岁 阮小二 ",
+            " 短命二郎 阮小五 ",
+            " 活阎王 阮小七 ",
+            " 入云龙 公孙胜",
+            " 白日鼠 白胜",
+            "操刀鬼 曹正",
+            "及时雨 宋江",
+            " 铁扇子 宋清 ",
+            " 行者 武松 ",
+            " 菜园子 张青 ",
+            " 母夜叉 孙二娘 ",
+            " 金眼彪 施恩 ",
+            " 毛头星 孔明",
+            " 独火星 孔亮",
+            " 锦毛虎 燕顺 ",
+            " 矮脚虎 王英 ",
+            "白面郎君 郑天寿 ",
+            " 小李广 花荣",
+            " 镇三山 黄信 ",
+            " 霹雳火 秦明",
+            " 小温侯 吕方 ",
+            " 赛仁贵 郭盛",
+            " 石将军 石勇 ",
+            " 催命判官 李立",
+            " 混江龙 李俊 ",
+            " 出洞蛟 童威 ",
+            " 翻江蜃 童猛",
+            " 病大虫 薛永 ",
+            " 船伙儿 张横",
+            " 没遮拦 穆弘 ",
+            " 小遮拦 穆春",
+            " 神行太保 戴宗） ",
+            " 黑旋风 李逵 ",
+            " 浪里白条 张顺 ",
+            " 圣手书生 萧让 ",
+            " 玉臂匠 金大坚 ",
+            " 通臂猿 侯健",
+            " 摩云金 欧鹏 ",
+            " 神算子 蒋敬",
+            " 铁笛仙 马麟",
+            " 九尾龟 陶宗旺 ",
+            " 笑面虎 朱富 ",
+            " 青眼虎 李云 ",
+            " 锦豹子 杨林",
+            " 火眼猊 邓飞",
+            " 玉幡竿 孟康",
+            " 铁面孔目 裴宣",
+            " 病关索 杨雄",
+            " 拼命三郎 石秀 ",
+            " 鼓上蚤 时迁",
+            " 鬼脸儿 杜兴",
+            "扑天雕 李应",
+            " 一丈青 扈三娘 ",
+            "两头蛇 解珍 ",
+            " 双尾蝎 解宝",
+            " 铁叫子 乐和",
+            " 母大虫 顾大嫂 ",
+            " 小尉迟 孙新  ",
+            " 出林龙 邹渊",
+            " 独角龙 邹润 ",
+            "病尉迟 孙立 ",
+            " 金钱豹子 汤隆 ",
+            " 双鞭 呼延灼",
+            " 百胜将军 韩滔 ",
+            " 天目将军 彭圯 ",
+            "轰天雷 凌振 ",
+            " 金枪将 徐宁 ",
+            " 混世魔王 樊瑞",
+            " 八臂哪吒 项充 ",
+            " 飞天大圣 李兖 ",
+            " 金毛犬 段景住 ",
+            " 玉麒麟 卢俊义",
+            " 浪子 燕青",
+            " 铁臂膊 蔡福 ",
+            " 一枝花 蔡庆",
+            " 丑郡马 宣赞 ",
+            " 大刀 关胜 ",
+            " 井木犴 郝思文 ",
+            " 活闪婆 王定六",
+            " 神医 安道全",
+            " 没面目 焦挺 ",
+            " 圣水将军 单廷",
+            " 神火将军 魏定国 ",
+            " 丧门神 鲍旭 ",
+            " 险道神 郁保四 ",
+            " 双枪将 董平 ",
+            " 没羽箭 张清 ",
+            "花项虎 龚旺",
+            " 中箭虎 丁得孙",
+            "紫髯伯 皇甫端"];
+        var oneBtn=document.getElementById("bt1");
+        var oDiv=document.getElementById("div1");
+        var tenBtn=document.getElementById("btn11");
+
+        var flag=false;
+        var timer;
+        oneBtn.onclick=function () {
+            if(flag){
+                //已经启动随机, 则停止
+                clearInterval(timer);
+                oneBtn.value="开始";
+            }else {
+                //没有开始
+                timer=setInterval(function () {
+                    var index=Math.floor(Math.random()*arrName.length);  //  0--arrName.length-1
+                    var newName=arrName[index];
+                    oDiv.innerHTML="选中的武将:"+newName;
+                },100);
+                oneBtn.value="停止";
+
+            }
+            flag=!flag;
+        }
+        function write() {
+            document.write("---------------------------");
+            document.write("<br/>");
+        }
+
+        var count=0;
+        tenBtn.onclick=function () {
+            count=0;
+            clearInterval(timer);
+            timer=setInterval(function () {
+                if(count==10){
+                    clearInterval(timer);
+                }else{
+                    var index=Math.floor(Math.random()*arrName.length);
+                    var newName=arrName[index];
+                    oDiv.innerHTML=newName+count;
+                    count++;
+                }
+            },1000);
+        }
+    }
+
+
+
+
+</script>
+
+
+</body>
+</html>

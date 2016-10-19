@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js生成表格</title>
+</head>
+<style>
+    table{
+        border-collapse: collapse;
+        text-align: center;
+    }
+</style>
+<body>
+行数:<input type="text" id="rows"/>
+列数:<input type="text" id="cols"/>
+<input type="button" value="生成表格" id="btn">
+<table id="tab">
+
+</table>
+<script>
+    var tab=document.getElementById("tab");
+    var btn=document.getElementById("btn");
+    var rowsTxt=document.getElementById("rows");
+    var colsTxt=document.getElementById("cols");
+
+    btn.onclick=function () {
+        tab.innerHTML="";
+        var rows=parseInt(rowsTxt.value);
+        var cols=parseInt(colsTxt.value);
+
+        for(var i=0;i<rows;i++){
+            var tr=document.createElement("tr");//行
+            for(var j=0;j<cols;j++){
+                var td=document.createElement("td");//一个列单元格，同th
+                td.style.width="60px";
+                td.style.height="60px";
+                td.style.backgroundColor=getRandomColor();
+                td.style.border="1px solid #eee";
+                td.innerHTML=i+"行"+j+"列";
+                tr.appendChild(td);
+            }
+
+            var td1=document.createElement("td");
+            td1.innerHTML="清空";
+            td1.style.width="60px";
+            td1.style.height="60px";
+            td1.style.border="1px solid #eee";
+            td1.style.cursor="pointer";
+            tr.appendChild(td1);
+
+            td1.onclick=function () {
+                for(var k=0;k<cols;k++){
+                    this.parentNode.childNodes[k].innerHTML="";
+                }
+            }
+
+            var td2=document.createElement("td");
+            td2.innerHTML="删除";
+            td2.style.width="60px";
+            td2.style.height="60px";
+            td2.style.border="1px solid #eee";
+            td2.style.cursor="pointer";
+            //复制colne一行
+//            tr.onclick=function () {
+//                var trClone=this.cloneNode(true);
+//                tab.insertBefore(trClone,this);
+//            }
+            tr.appendChild(td2);
+            td2.onclick=function () {
+                this.parentNode.parentNode.removeChild(this.parentNode);
+            }
+
+         tab.appendChild(tr)
+        }
+
+
+        //新建一行
+        var tr2=document.createElement("tr");
+        tr2.style.height="60px";
+        tr2.style.width="120px";
+        tr2.style.cursor="pointer";
+        tr2.innerHTML="clear all"
+
+        tr2.onclick=function () {
+            for(var p=0;p<rows;p++){
+                for(var s=0;s<cols;s++){
+                    this.parentNode.children[p].children[s].innerHTML="";
+                }
+            }
+        }
+        tab.appendChild(tr2);
+    }
+
+    function getRandomColor() {
+        var color="000000"+Math.floor(Math.random()*0x1000000).toString(16);
+        console.log(color);
+        console.log(color.substr(-6));//6个字符后开始截取字符串
+        return "#"+color.substr(-6);
+    }
+
+</script>
+</body>
+</html>

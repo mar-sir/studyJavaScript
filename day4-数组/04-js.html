@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组删除</title>
+</head>
+<body>
+<script>
+    var arr=[];
+    arr.push(0);
+    arr.push(1);
+    arr.push(2);
+    arr.push(3);
+    arr.push(10);
+    arr.push(11);
+    arr.push(12);
+    arr.push(14);
+    arr.push(15);
+    arr.push(15);
+    arr.push(16);
+    arr.push(17);
+    alert(arr);
+    arr.splice(9,3);//从下标9（包括9）开始，删除3个元素
+    alert(arr);
+    /*console.log("chun-->"+arr);
+    for(var i=0;i<arr.length;i++){
+        if(arr[i]>5){
+            arr.splice(i,1);
+            i--;//删除后下标-1
+        }
+    }
+    console.log("chun-->"+arr);
+*/
+
+
+
+
+</script>
+
+</body>
+</html>

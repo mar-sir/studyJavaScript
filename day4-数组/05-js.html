@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组对象排序</title>
+
+</head>
+<body>
+<script>
+    var sItem = ["a", "c", "b"];
+    var aItem = [];
+    aItem.push(0);
+    aItem.push(21);
+    aItem.push(2);
+    aItem.push(33);
+    aItem.push(10);
+    aItem.push(11);
+    aItem.push(2);
+    aItem.push(14);
+    console.log(aItem);
+
+//    alert(aItem.sort(function (a, b) {
+//        return -1;//-1，1； -1默认原数列，1默认倒序;
+//        return a - b;
+//    }));
+//
+    alert(aItem.sort(fn));
+    function fn(a ,b) {
+        return a-b;
+    }
+    console.log(aItem);
+
+    alert(sItem.sort());//sort  a c b
+
+    console.log("排序后--->" + sItem);
+    var aPerson=[];
+    aPerson.push({
+        name:"zs10",
+        age:10
+    });
+    aPerson.push({
+        name:"zsy9y08087020",
+        age:20
+    });
+    aPerson.push({
+        name:"hahaha",
+        age:14
+    });
+    aPerson.push({
+        name:"heihei0",
+        age:10
+    });
+    aPerson.push({
+        name:"shabids",
+        age:30
+    });
+    aPerson.push({
+        name:"likes",
+        age:50
+    });
+    aPerson.push({
+        name:"lovessss",
+        age:22
+    });
+
+    function  fnSort(a,b) {
+        if (a.age!=b.age)
+            return a.age-b.age;
+        return a.name.length-b.name.length;
+    }
+
+    aPerson.sort(fnSort);
+    for(var i=0;i<aPerson.length;i++){
+        document.write(aPerson[i].age+" "+aPerson[i].name);
+        document.write("<br/>")
+    }
+
+</script>
+
+</body>
+</html>
