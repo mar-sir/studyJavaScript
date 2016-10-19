@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组方法</title>
+</head>
+<body>
+<script>
+    var arr1=[1,2,3];
+    var arr2=[4,5,6];
+    var arr3=arr1.concat(arr2);//连接
+    var arr4=arr1.concat(4);
+    var arr5=arr1.concat();//1 2 3
+    arr5.push(10);
+
+    alert(arr5);
+
+    var arr6=[1,2,3,4,5,6,7,8,9];
+
+    var arr7=arr6.slice(3,7);//4 5 6 7 同字符串截取 截取下标为3-7的元素，第一个参数可为负，表示从末尾截取
+    var arr8=arr6.splice(3,7);//4 5 6 7 8 9//返回被删除的数据,会改变原始数组
+    for(var i=0;i<arr6.length;i++){
+        console.log(arr6[i]);
+    }
+    alert(arr7);
+    alert(arr8);
+    console.log(arr8);
+
+    var  arr9=[1,2,3,4,5,6,7,8,9,3];
+    alert(arr9.indexOf(3));
+    alert(arr9.lastIndexOf(3));
+
+    alert(arr9.indexOf(3,5));
+    alert(arr9.lastIndexOf(3,5));
+
+    arr9.forEach(function (item,index,arr) {
+       document.write(item+"-----"+index+"-----"+arr);
+        document.write("<br/>")
+    });
+
+    arr9.filter(function(item,index,arr){
+        document.write(item+"----"+index+"----"+arr+"-----"+this.length);
+        document.write("<br/>");
+    },arr1);
+
+    //数组反转
+    alert(arr9);
+    arr9.reverse();
+    alert(arr9);
+</script>
+
+</body>
+</html>
