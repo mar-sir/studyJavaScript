@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义菜单</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        div {
+            width: 80px;
+            height: 120px;
+            background: #eee;
+            display: none;
+            position: absolute;
+            top: 0px;
+            left: 0px;;
+        }
+
+        a {
+            text-decoration: none;
+            width: 80px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #000;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <a href="#">复制</a>
+    <a href="#">粘贴</a>
+    <a href="#">新建</a>
+</div>
+<script>
+    var oDiv=document.getElementById("div1");
+    document.oncontextmenu=function (event) {
+        event=event||window.event;//,var evnt=evnt ||window.event,是为了兼容FF等MOZ浏览器,对,是获得这个事件的对象,可以通过这个对象获得鼠标坐标,页面等属性
+        oDiv.style.top=event.clientY+"px";
+        oDiv.style.left=event.clientX+"px";
+        oDiv.style.display="block";
+        if(event.stopPropagation()){
+            event.stopPropagation();
+        }else{
+         event.cancelBubble=true;
+        }
+        return false;
+    }
+
+    oDiv.onclick=function (event) {
+        event=event||window.event;
+        if(event.stopPropagation()){
+            event.stopPropagation();
+        }else{
+            event.cancelBubble=true;
+        }
+        return false;
+    }
+
+    document.onclick=function (event) {
+        oDiv.style.display="none";
+    }
+</script>
+
+</body>
+</html>

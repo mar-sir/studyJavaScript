@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标位置</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding:0;
+    }
+    #div2{
+        position: relative;
+        top:100px;
+        left:100px;
+    }
+    #div3{
+        width:400px;
+        height: 400px;
+        background: blue;
+    }
+    #div1{
+        width:80px;
+        height: 80px;
+        background: red;
+        position: absolute;
+        top: 200px;
+        left: 300px;
+    }
+</style>
+<body>
+<div id="div2">
+    <div id="div3">
+        <div id="div1"></div>
+    </div>
+</div>
+
+<script>
+    var div1=document.getElementById("div1");
+
+    div1.onmousedown=function (event) {
+        event=event||window.event;
+        console.log("event.clientX-->"+event.clientX+"event.clientY-->"+event.clientY);
+        console.log("event.screenX-->"+event.screenX+"event.screenY-->"+event.screenY);
+        console.log("event.offsetX-->"+event.offsetX+"event.offsetY-->"+event.offsetY);
+        console.log("offsetLeft-->"+this.offsetLeft+"offsetTop-->"+this.offsetTop);
+        console.log("offsetWidth-->"+this.offsetWidth+"offsetHeight-->"+this.offsetHeight);
+    }
+
+</script>
+</body>
+</html>

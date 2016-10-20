@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型练习</title>
+</head>
+<body>
+<script>
+    function Person(name,age) {
+        this.name=name;
+        this.age=age;
+        this.showName=function () {
+            alert(this.name);
+        }
+    }
+    Person.prototype.showAge=function () {
+        alert(this.age);
+    }
+
+    Person.prototype.id=12345;
+    Person.prototype.QQ=[];
+
+
+    var person1=new Person("张三",20);
+    person1.QQ.push(100001);
+
+    var person2=new Person("李四",22);
+    person2.QQ.push(100008);
+
+    //数组引用型
+
+    alert(person1.QQ);//100001,100008
+
+    alert(person2.QQ);//100001,10008
+
+
+    person1.id=5678;
+    alert(person1.id);//5678
+    alert(person2.id);//12345
+
+
+
+
+
+</script>
+
+</body>
+</html>

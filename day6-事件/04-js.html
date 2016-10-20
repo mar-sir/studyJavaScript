@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轨迹移动</title>
+    <style>
+        #box{
+            width:66px;
+            height:45px;
+            position:absolute;
+            left:0;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    var imageList=[];
+    var i=0;
+    var time;
+    document.onmousedown=function() {
+        document.onmousemove=function (event) {
+            event=event||window.event;
+            var oDiv=document.createElement("div");
+            oDiv.style.width="5px";
+            oDiv.style.height="5px";
+            oDiv.style.background="red";
+            oDiv.style.position="absolute";
+            oDiv.style.top=event.clientY+"px";
+            oDiv.style.left=event.clientX+"px";
+            document.body.appendChild(oDiv);
+            imageList.push(oDiv);
+        }
+    }
+
+    document.onmouseup=function () {
+        document.onmousemove=null;
+        var imgBox=document.getElementById("box");
+        imgBox.style.background="url(images/2.gif)";
+        clearInterval(time);
+        time=setInterval(function () {
+            if(i<imageList.length){
+                imgBox.style.top=imageList[i].offsetTop+"px";
+                imgBox.style.left=imageList[i].offsetLeft+"px";
+                document.body.removeChild(imageList[i]);
+                i++;
+            }else{
+                imgBox.style.background="url(images/1.gif)";
+                imgBox.style.width="48px";
+                imgBox.style.height="40px";
+                clearInterval(time);
+                imageList=[];
+                i=0;
+            }
+        },30);
+    }
+</script>
+
+
+</body>
+</html>

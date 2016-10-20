@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多个div移动</title>
+    <style>
+        div{
+            width:5px;
+            height:5px;
+            background: red;
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div></div><div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div>
+<script>
+    var oDivList=document.getElementsByTagName("div");
+    document.onmousemove=function (event) {
+        event=event||window.event;
+        for(var i=oDivList.length-1;i>0;i--){
+            oDivList[i].style.top=oDivList[i-1].offsetTop+"px";
+            oDivList[i].style.left=oDivList[i-1].offsetLeft+"px";
+        }
+        oDivList[0].style.top=event.clientY+"px";
+        oDivList[0].style.left=event.clientX+"px";
+    }
+   /* document.onclick=function () {
+        document.onmousemove=null;
+    }*/
+</script>
+</body>
+</html>

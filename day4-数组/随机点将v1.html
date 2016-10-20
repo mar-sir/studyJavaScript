@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点将版本1</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        width: 900px;
+        list-style: none;
+        height: 300px;
+        margin: 40px auto;
+    }
+
+    li {
+        float: left;
+        width: 80px;
+        line-height: 80px;
+        background: #eee;
+        border: 1px solid #fff;
+        text-align: center;
+    }
+
+    form {
+        text-align: center;
+    }
+
+    #btn {
+        width: 50px;
+        height: 30px;
+    }
+
+    #btn2 {
+        width: 60px;
+        height: 30px;
+    }
+
+</style>
+<body>
+<ul id="name">
+    <li>fdsfds</li><li>fdsfds</li><li>fdsfds</li><li>fdsfdsfds</li><li>dsadsa</li><li>fdsfds</li><li>dfsfds</li><li>fdsfds</li><li>fdsfds</li><li>ffgfd</li>
+    <li>fdsfds</li><li>fdsfds</li><li>fdsfds</li><li>fdsfdsfds</li><li>dsadsa</li><li>fdsfds</li><li>dfsfds</li><li>fdsfds</li><li>fdsfds</li><li>ffgfd</li>
+    <li>fdsfds</li><li>fdsfds</li><li>fdsfds</li><li>fdsfdsfds</li><li>dsadsa</li><li>fdsfds</li><li>dfsfds</li><li>fdsfds</li><li>fdsfds</li><li>ffgfd</li>
+    <li>fdsfds</li><li>fdsfds</li><li>fdsfds</li><li>fdsfdsfds</li><li>dsadsa</li><li>fdsfds</li><li>dfsfds</li><li>fdsfds</li><li>fdsfds</li><li>ffgfd</li>
+    <li>fdsfds</li><li>fdsfds</li><li>fdsfds</li><li>fdsfdsfds</li><li>dsadsa</li><li>fdsfds</li><li>dfsfds</li><li>fdsfds</li><li>fdsfds</li><li>ffgfd</li>
+    <li>fdsfds</li><li>fdsfds</li><li>fdsfds</li><li>fdsfdsfds</li><li>dsadsa</li><li>fdsfds</li><li>dfsfds</li><li>fdsfds</li><li>fdsfds</li><li>ffgfd</li>
+    <li>fdsfds</li><li>fdsfds</li><li>fdsfds</li><li>fdsfdsfds</li><li>dsadsa</li><li>fdsfds</li><li>dfsfds</li><li>fdsfds</li><li>fdsfds</li><li>ffgfd</li>
+    <li>fdsfds</li><li>fdsfds</li><li>fdsfds</li><li>fdsfdsfds</li><li>dsadsa</li><li>fdsfds</li><li>dfsfds</li><li>fdsfds</li><li>fdsfds</li><li>ffgfd</li>
+    <li>fdsfds</li><li>fdsfds</li><li>fdsfds</li><li>fdsfdsfds</li><li>dsadsa</li><li>fdsfds</li><li>dfsfds</li><li>fdsfds</li><li>fdsfds</li><li>ffgfd</li>
+    <li>fdsfds</li><li>fdsfds</li><li>fdsfds</li><li>fdsfdsfds</li><li>dsadsa</li><li>fdsfds</li><li>dfsfds</li><li>fdsfds</li><li>fdsfds</li><li>ffgfd</li>
+    <li>fdsfds</li><li>fdsfds</li><li>fdsfds</li><li>fdsfdsfds</li><li>dsadsa</li><li>fdsfds</li><li>dfsfds</li><li>fdsfds</li>
+
+</ul>
+<form>
+    <input type="button" value="开始" id="btn"/>
+    <input type="button" value="随机十次" id="btn2">
+</form>
+
+<script>
+    var btn1=document.getElementById("btn");
+    var btn2=document.getElementById("btn2");
+    var box=document.getElementById("name");
+    var arrName = ["九纹龙"
+        , "神机军师",
+        " 跳涧虎",
+        " 白花蛇",
+        "花和尚",
+        "打虎将",
+        "小霸王 ",
+        "豹子头",
+        " 小旋风",
+        " 旱地忽律 ",
+        " 摸着天",
+        " 云里金刚 ",
+        " 青面兽",
+        " 急先锋",
+        " 美髯公 ",
+        " 插翅虎 ",
+        " 赤发鬼",
+        " 智多星 ",
+        "立地太岁  ",
+        " 短命二郎  ",
+        " 活阎王  ",
+        " 入云龙 ",
+        " 白日鼠",
+        "操刀鬼 ",
+        "及时雨 ",
+        " 铁扇子  ",
+        " 行者  ",
+        " 菜园子 ",
+        " 母夜叉  ",
+        " 金眼彪  ",
+        " 毛头星 ",
+        " 独火星 ",
+        " 锦毛虎  ",
+        " 矮脚虎  ",
+        "白面郎君  ",
+        " 小李广 ",
+        " 镇三山 ",
+        " 霹雳火 ",
+        " 小温侯  ",
+        " 赛仁贵 ",
+        " 石将军  ",
+        " 催命判官 ",
+        " 混江龙  ",
+        " 出洞蛟  ",
+        " 翻江蜃 ",
+        " 病大虫  ",
+        " 船伙儿 ",
+        " 没遮拦  ",
+        " 小遮拦 ",
+        " 神行太保 ",
+        " 黑旋风  ",
+        " 浪里白条  ",
+        " 圣手书生 ",
+        " 玉臂匠 ",
+        " 通臂猿 ",
+        " 摩云金 ",
+        " 神算子 ",
+        " 铁笛仙 ",
+        " 九尾龟 ",
+        " 笑面虎  ",
+        " 青眼虎  ",
+        " 锦豹子 ",
+        " 火眼猊",
+        " 玉幡竿 ",
+        " 铁面孔目 ",
+        " 病关索 ",
+        " 拼命三郎  ",
+        " 鼓上蚤 ",
+        " 鬼脸儿 ",
+        "扑天雕 ",
+        " 一丈青  ",
+        "两头蛇  ",
+        " 双尾蝎 ",
+        " 铁叫子 ",
+        " 母大虫",
+        " 小尉迟  ",
+        " 出林龙 ",
+        " 独角龙 ",
+        "病尉迟  ",
+        " 金钱豹子 ",
+        " 双鞭 ",
+        " 百胜将军 ",
+        " 天目将军 ",
+        "轰天雷 ",
+        " 金枪将  ",
+        " 混世魔王 ",
+        " 八臂哪吒 ",
+        " 飞天大圣  ",
+        " 金毛犬  ",
+        " 玉麒麟 ",
+        " 浪子 ",
+        " 铁臂膊 ",
+        " 一枝花 ",
+        " 丑郡马  ",
+        " 大刀  ",
+        " 井木犴  ",
+        " 活闪婆",
+        " 神医 ",
+        " 没面目 ",
+        " 圣水将军 ",
+        " 神火将军  ",
+        " 丧门神  ",
+        " 险道神  ",
+        " 双枪将  ",
+        " 没羽箭  ",
+        "花项虎 ",
+        " 中箭虎 ",
+        "紫髯伯"];
+
+    var liList=box.getElementsByTagName("li");
+    var flag=false;
+    var specialIndex=0;
+    var timer;
+    var isTen=false;
+    for(var i=0;i<liList.length;i++){
+        liList[i].innerHTML=arrName[i];
+        liList[i].index=i;
+        liList[i].onclick=function () {
+            specialIndex=this.index;
+        }
+    }
+
+    var index=0;
+    btn1.onclick=function () {
+        if(!isTen) {
+            if (flag) {
+                /* //每次最后都是一个人
+            liList[index].style.backgroundColor="#eee";
+            index=3;
+            liList[index].style.background="red";*/
+            // 先点谁，最后就是谁
+                /*liList[index].style.background="#eee";
+            index=specialIndex;
+            liList[index].style.background="red";*/
+            clearInterval(timer);
+            flag=!flag;
+                this.value="开始";
+        }else{
+                timer= setInterval(function () {
+                liList[index].style.background="#eee";//重置颜色
+                index=Math.floor(Math.random()*arrName.length);
+                liList[index].style.background="red";
+            },100);
+            this.value="停止";
+            flag=!flag;
+        }
+            }else{
+            alert("请等待十次随机");
+        }
+    }
+
+    var count=0;
+    btn2.onclick=function () {
+        if(flag){
+            alert("请先停止点将");
+            return;
+        }
+
+        count=0;
+        timer=setInterval(function () {
+           if(count==10){
+               clearInterval(timer);
+               isTen=false;
+           }else{
+               isTen=true;
+               liList[index].style.background="#eee";
+               index=Math.floor(Math.random()*arrName.length);
+               liList[index].style.background="red";
+               count++;
+           }
+        },1000);
+    }
+
+</script>
+</body>
+</html>

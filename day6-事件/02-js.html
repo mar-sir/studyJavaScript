@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标移动</title>
+    <style>
+        #div1{
+            width: 40px;
+            height: 40px;
+            background: red;
+            position: absolute;
+            top: 0px;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<script>
+    var oDiv=document.getElementById("div1");
+
+    document.onmousemove=function (event) {
+        event=event||window.event;
+        oDiv.style.top=event.clientY+"px";
+        oDiv.style.left=event.clientX+"px";
+    }
+</script>
+
+
+</body>
+</html>
