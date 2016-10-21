@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动吸附</title>
+</head>
+<style>
+    #div1{
+        width:50px;
+        height:50px;
+        background: red;
+        cursor: pointer;
+        position: absolute;
+        top:0;
+        left:0;
+    }
+</style>
+<body>
+<div id="div1"></div>
+<script>
+    var div1=document.getElementById("div1");
+    var event1;
+    var event2;
+    var strCookie=document.cookie;
+    var arrCookie=strCookie.split("; ");
+    if(strCookie.length>0){
+        for(var i=0;i<arrCookie.length;i++){
+            var Item=arrCookie[i].split("=");
+            var positionItem=Item[1].split(",");
+            if(Item[0]=="position"){
+                div1.style.top=positionItem[1]+"px";
+                div1.style.left=positionItem[0]+"px";
+            }
+        }
+    }
+    div1.onmousedown=function (event) {
+        event1=event||window.event;
+        document.onmousemove=function (event) {
+            event2=event||window.event;
+            div1.style.top=event2.clientY-event1.offsetY+"px";
+            div1.style.left=event2.clientX-event1.offsetX+"px";
+        }
+    }
+    document.onmouseup=function (e) {
+        document.onmousemove=null;
+        e=event||window.event;
+        var date=new Date();
+        var time=date.getDate()+30;
+
+        var left=div1.offsetLeft;
+        var top=div1.offsetTop;
+        document.cookie="position="+left+","+top+";expires="+time;
+        if(e.clientX-e.offsetX<50){
+            div1.style.left="0px";
+        }
+        if(e.clientY<0){
+            div1.style.top="0px";
+        }
+        var clientWith=document.documentElement.clientWidth||document.body.clientWidth;
+        if (div1.offsetLeft>clientWith-div1.offsetWidth-50){
+            div1.style.left=clientWith-div1.offsetWidth+"px";
+        }
+    }
+</script>
+</body>
+</html>

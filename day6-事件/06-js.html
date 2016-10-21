@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算器</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            margin: 20px auto 0;
+            width: 400px;
+            height: 500px;
+            background: gainsboro;
+            border: 1px solid #C0de98;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            text-align: center;
+            line-height: 80px;
+            font-size: 32px;
+            float: left;
+            width: 100px;
+            height: 80px;
+            cursor: pointer;
+        }
+        p{
+            width: 400px;
+            height: 100px;
+            text-align: right;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <p></p>
+    <ul>
+        <li>CE</li>
+        <li>C</li>
+        <li><-</li>
+        <li>/</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>*</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>-</li>
+        <li>3</li>
+        <li>2</li>
+        <li>1</li>
+        <li>+</li>
+        <li>+-</li>
+        <li>0</li>
+        <li>.</li>
+        <li>=</li>
+    </ul>
+</div>
+<script>
+    var result=document.getElementsByTagName("p");
+    var liList=document.getElementsByTagName("li");
+    var flag=false;
+    for(var i=0;i<liList.length;i++){
+        liList[i].index=i;
+        var str="";
+        result[0].innerHTML="";
+        liList[i].onclick=function (event) {
+            if(flag){
+                result[0].innerHTML="";
+                flag=false;
+            }
+            event=event||window.event;
+            if(this.innerHTML=="+"){
+                result[0].innerHTML+="+";
+                str+="+#";
+            }else if(this.innerHTML=="-"){
+                result[0].innerHTML+="-";
+                str+="-#";
+            }else if (this.innerHTML=="*"){
+                result[0].innerHTML+="*";
+                str+="*#";
+            }else if(this.innerHTML=="/"){
+                result[0].innerHTML+="/";
+                str+="/#";
+            }else if(this.innerHTML=="="){
+                flag=true;
+                result[0].innerHTML="";
+                var num=str.split("#");
+                var num2=scan(num);
+                var n1=parseFloat(num2[0]);
+                var n2=0;
+                for(var k=1;k<num2.length-1;k++){
+                  if((num2[k]=="*"||num2[k]=="/"||num2[k]=="+"||num2[k]=="-")){
+                      n2=parseFloat(num2[k+1]);
+                      n1=jisuan(n1,n1,num2[k]);
+                  }
+                }
+                result[0].innerHTML+=n1;
+                str="";
+            }
+            else{
+                result[0].innerHTML+=this.innerHTML;
+                str+=this.innerHTML+"#";
+            }
+        }
+    }
+    function jisuan(a,b,s) {
+        switch (s){
+            case "+":
+                return a+b;
+            case "-":
+                return a-b;
+            case "+":
+                return a*b;
+            case "/":
+                return a/b;
+            default:
+                return 0;
+        }
+    }
+function scan(num) {
+    var str="";
+    var a=[];
+    for(var i=0;i<num.length-i;i++){
+        if(num[i]=="*"||num[i]=="/"||num[i]=="+"||num[i]=="-"){
+            a.push(str);
+            a.push(num[i]);
+            str="";
+        }
+        else if(i==num.lenght-2){
+            a.push(str+num[i]);
+        }else{
+            str+num[i];
+        }
+    }
+    return a;
+}
+
+</script>
+
+</body>
+
+</html>

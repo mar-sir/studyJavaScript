@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        img{
+            display: block;
+            border: 0;
+        }
+        #small{
+            overflow:hidden;
+        }
+        #small li{
+            width:170px;
+            height: 170px;
+            float: left;
+            list-style: none;
+            cursor: pointer;
+        }
+        #big{
+            background: red;
+        }
+        #li1{
+            list-style: none;
+            width:100px;
+            height: 100px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<ul id="small">
+    <li><img src="images/shirt_1.jpg"/></li>
+    <li><img src="images/shirt_2.jpg"></li>
+    <li><img src="images/shirt_3.jpg"/></li>
+    <li><img src="images/shirt_4.jpg"></li>
+</ul>
+<ul id="big">
+    <li id="li1"></li>
+</ul>
+<script>
+    var small=document.getElementById("small");
+    var liList=small.getElementsByTagName("li");
+    var li1=document.getElementById("li1");
+    for(var i=0;i<liList.length;i++){
+        liList[i].index=i+1;
+        liList[i].onmouseover=function () {
+            li1.style.background="url(images/shirt_"+this.index+"_big.jpg)"+"no-repeat center";
+
+            this.onmousemove=function(event) {
+                event=event||window.event;
+                li1.style.top=event.clientY+20+"px";
+                li1.style.left=event.clientX+20+"px";
+                //console.log(event.offsetX);
+                var x=event.offsetX*2.35;
+                var y=event.offsetY*2.35;
+                li1.style.backgroundPosition=x+"px"+y+"px";
+            }
+        }
+        liList[i].onmouseout=function () {
+            li1.style.background="none";
+        }
+    }
+</script>
+
+</body>
+</html>
