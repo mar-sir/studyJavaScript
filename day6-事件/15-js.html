@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>兼容调用--跟随</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    div{
+        width:5px;
+        height: 5px;
+        background: red;
+        position: absolute;
+        top:0;
+        left:0;
+    }
+</style>
+<script src="EventUtilsEx.js"></script>
+<body>
+<div></div>
+<div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div>
+<script>
+    var divList=document.getElementsByTagName("div");
+
+    document.onmousemove=function (event) {
+        var event=EventUtil.getEvent(event);
+        var target=EventUtil.getTarget(event);
+
+        EventUtil.stopPropagation();
+
+        //如果我们10 div:for循环执行9次
+        for(var i=divList.length-1;i>0;i--){
+            divList[i].style,left=divList[i-1].offsetLeft+"px";
+            divList[i].style.top=divList[i-1].offsetTop+"px";
+        }
+        divList[0].style.left=event.clientX+"px";
+        divList[0].style.top=event.clientY+"px";
+    }
+
+    document.onclick=function () {
+        document.onmousemove=null;
+    }
+</script>
+
+</body>
+</html>

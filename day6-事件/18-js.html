@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件委托</title>
+</head>
+<style>
+    td{
+        width:240px;
+        height: 30px;
+    }
+</style>
+<script src="EventUtilsEx.js"></script>
+<body>
+<ul id="ul1">
+    <li id="li1">123</li>
+    <li id="li2">456</li>
+    <li id="li3">789</li>
+</ul>
+<script>
+    var li1=document.getElementById("li1");
+    var li2=document.getElementById("li2");
+    var li3=document.getElementById("li3");
+
+    li1.onclick=function (event) {
+        alert("123");
+    }
+
+    li2.onclick=function () {
+        alert("456");
+    }
+    li3.onclick=function () {
+        alert("789");
+    }
+
+
+
+    var ul1=document.getElementById("ul1");
+    ul1.onclick=function (event) {
+        event=EventUtil.getEvent(event);
+        switch(EventUtil.getTarget(event).id){
+            case "li1": alert("123");
+                break;
+            case "li2":alert("456");
+                break;
+            case "li3":alert("789");
+                break;
+        }
+    }
+</script>
+
+</body>
+</html>

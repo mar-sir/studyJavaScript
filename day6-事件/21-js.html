@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 800px;
+            list-style: none;
+        }
+        li{
+            float: left;
+        }
+        #div1{
+            width:400px;
+            height: 400px;
+            position: absolute;
+            display: none;
+            top: 100px;
+            left: 700px;
+            overflow: hidden;
+            border: 1px solid red;
+            background: blue;
+        }
+        #imgbig{
+            width: 600px;
+            height: 600px;
+            position: absolute;
+            top: -100px;
+            left: -100px;
+        }
+
+    </style>
+    <script src="EventUtilsEx.js"></script>
+</head>
+<body>
+<ul id="ul">
+    <li><img src="images/shirt_1.jpg"></li>
+    <li><img src="images/shirt_2.jpg"></li>
+    <li><img src="images/shirt_3.jpg"></li>
+    <li><img src="images/shirt_4.jpg"></li>
+</ul>
+<div id="div1" ><img id="imgbig" src="images/shirt_1_big.jpg"></div>
+<script>
+    var liList=document.getElementById("ul").children;
+    var oDiv=document.getElementById("div1");
+    var oBigImg=document.getElementById("imgbig");
+
+    for(var i=0;i<liList.length;i++){
+        liList[i].onmouseover=function () {
+            //让大图显示
+            oDiv.style.display="block";
+            //改换对象的图片
+            var newSrc=this.children[0].src.replace(".jpg","_big.jpg");
+            oDiv.children[0].src=newSrc;
+        }
+        liList[i].onmouseout=function () {
+            oDiv.style.display="none";
+        }
+        liList[i].onmousemove=function (event) {
+            event=EventUtil.getEvent(event);
+            var topP=event.offsetY/170*600;
+            var leftP=event.offsetX/170*600;
+            oBigImg.style.top=oDiv.offsetHeight/2-topP+"px";
+            oBigImg.style.left=oDiv.offsetWidth/2-leftP+"px";
+        }
+    }
+</script>
+</body>
+</html>
