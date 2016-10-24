@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>递归的一些方法</title>
+</head>
+<body>
+<script>
+    //递归求阶乘
+    function fn(n) {
+        if(n==1){
+            return 1;
+        }else {
+            return n*fn(n-1);
+        }
+    }
+    console.log("递归求阶乘:"+fn(5));
+    //for循环
+    function fn(n) {
+        var sum=1;
+        for(var i=2;i<=n;i++){
+            sum*=i;
+        }
+        return sum;
+    }
+    console.log("循环求阶乘:"+fn(5));
+
+    function fnAdd(n) {
+        if(n==1){
+            return 1;
+        }else{
+            return n+fnAdd(n);
+        }
+    }
+    console.log("递归求和:"+fnAdd(5));
+
+    //走台阶 （兔子问题）
+    function f(n) {
+        if(n==1){
+            return 1;
+        }else if(n==2){
+            return 2;
+        }else {
+            return f(n-1)+f(n-2);
+        }
+    }
+    console.log("兔子问题："+f(5));
+
+</script>
+</body>
+</html>
