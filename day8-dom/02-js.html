@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>get</title>
+    <style>
+        div{
+            width:50px;
+            height:50px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">0</div>
+<div class="cl">1</div>
+<div class="c1">2</div>
+<div class="name1" class="cl">3</div>
+<div class="c1">4</div>
+<input id="txt1" type="text" value="123" />
+<input id="bt1" type="button" value="ok"/>
+
+<script>
+    window.onload=function () {
+        //dom 接口，为了操作页面
+        //增删改查
+        //查
+        var oDiv=document.getElementById("div1");//获取单个对象 引用类型
+        var oTxtValue=document.getElementById("txt1").value;//这样  是 值类型； string
+        alert(oTxtValue);//123
+
+        //oTxt.value="345";
+        var oBt=document.getElementById("bt1");
+        oBt.onclick=function () {
+            alert(oTxtValue);//123
+        }
+        //getElementsByTagName 的参数，就是TagName div
+        var oInputs=document.getElementsByTagName("input");//多个，是集合。 并不是数组。
+        alert(oInputs.length);//2
+
+        var oDivC1=document.getElementsByClassName("c1");
+        alert(oDivC1.length);
+
+
+        for(var i=0;i<oDivC1.length;i++){
+            //绑定一个点击事件；
+            oDivC1[i].index=i;  //新建一个动态属性
+            oDivC1[i].onclick= function () {
+                alert(this.index);
+            }
+
+            //for循环中 如果出现i ，必须保证在循环时，执行。
+        }
+
+        var oDivc=document.getElementsByName("name1");
+
+
+    }
+</script>
+</body>
+</html>
