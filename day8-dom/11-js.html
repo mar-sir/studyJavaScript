@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态生成表格</title>
+</head>
+<body>
+<input type="text" id="row" value="3"/>
+<input type="text" id="col" value="4"/>
+<input type="button" id="bt" value="生成"/>
+<div id="div1"></div>
+<script>
+    var oBt=document.getElementById("bt");
+    var oTxt1=document.getElementById("row");
+    var oTxt2=document.getElementById("col");
+    var oDiv=document.getElementById("div1");
+
+    var table=document.createElement("table");
+    oBt.onclick=function () {
+        for(var j=0;j<parseInt(oTxt1.value);j++){
+            //创建tr,并且把tr渲染到页面
+            var oTr=document.createElement("tr");
+            for(var i=0;i<parseInt(oTxt2.value);i++){
+                var otd=document.createElement("td");
+                otd.innerHTML="坐标:行号: "+j+";列号: "+i;
+                otd.style.width="180px";
+                otd.style.height="30px";
+                otd.style.background=getRandomColor();
+                oTr.appendChild(otd);
+            }
+            table.appendChild(oTr);
+        }
+        oDiv.innerHTML="";
+        oDiv.appendChild(table);
+    }
+
+    function getRandomColor() {
+        var str="000000"+Math.floor(Math.random()*0x1000000).toString(16);
+        return "#"+str.substr(-6);
+    }
+</script>
+
+</body>
+</html>

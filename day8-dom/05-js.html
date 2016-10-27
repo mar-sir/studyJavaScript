@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ClassName</title>
+</head>
+<body>
+<div class="div1 div2">
+
+</div>
+<script>
+    function getElementByClassNameEx(classname) {
+        var elementList=[];
+        var tagList=document.getElementsByTagName("*");
+        for(var i=0;i<tagList.length;i++){
+            var classNameCurr=tagList[i].getAttribute("class");
+            var arrClass=classNameCurr.split(" ");
+            for(var j=0;j<arrClass.length;j++){
+                if(arrClass[j]==classname){
+                    elementList.push(tagList[i]);
+                    break;
+                }
+            }
+        }
+        return elementList;
+    }
+</script>
+
+</body>
+</html>

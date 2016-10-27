@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定位</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div2{
+            width: 50px;
+            height: 50px;
+            background: red;
+            position: absolute;
+            top:100px;
+            left:100px;
+        }
+        #div1{
+                width: 50px;
+                height: 50px;
+                background: blue;
+                position: absolute;
+                top: 100px;
+                left:100px;
+            }
+        #div3{
+            width: 150px;
+            height: 150px;
+            background: yellow;
+            position: absolute;
+            top: 100px;
+            left:100px;
+        }
+    </style>
+</head>
+<body>
+<div id="div3">
+    <div id="div1">
+        <div id="div2">
+
+        </div>
+    </div>
+</div>
+<script>
+    var oDiv2=document.getElementById("div2");
+    var offsetParent=oDiv2.offsetParent;//div3
+    var parent=oDiv2.parentNode;//div1
+    alert(oDiv2.offsetLeft);//left值
+    alert(oDiv2.offsetTop);//top值 px;
+    //如果想计算某个div到body的top有多大
+    //div自己的top:+ offsetParaent 的top
+    function getTop(dom) {
+        var top=dom.offsetTop;
+        while(dom.offsetParent){
+            top+=dom.offsetParent.offsetTop;
+            dom=dom.offsetParent;//
+        }
+        return top;
+    }
+
+    function getLeft(dom) {
+
+    }
+    function getPosition(dom) {
+        return {
+            top:123,
+             left:23
+        }
+    }
+
+    var top1=getTop(oDiv2);
+    alert(top1);
+
+</script>
+
+</body>
+</html>

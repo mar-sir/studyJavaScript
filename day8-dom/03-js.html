@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>createdom</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background: red;
+        }
+    </style>
+
+</head>
+<body>
+<div id="div1">
+    <div id="div21"></div>
+    <div id="div22"></div>
+    <div id="div23"></div>
+</div>
+<script>
+    //创建
+    //参数是tagname
+    /* var oDiv=document.createElement("div");
+     oDiv.style.width="50px";
+     oDiv.style.height="50px";
+     oDiv.style.background="blue";
+     //创建完成之后，需要添加到界面
+     //找到他的父节点
+     document.body.appendChild(oDiv);*/
+
+    var oDiv = document.getElementById("div1");//获取单个对象，引用类型
+    var nodes = oDiv.childNodes;//是一个集合；包含了空本节点
+    alert(nodes.length);//3个 新标准，，包涵了空文本节点
+
+    var parent = oDiv.parentNode;//一个。body
+    var oDiv22 = document.getElementById("div22");//获取单个对象。引用类型
+    var oDiv211 = oDiv22.previousElementSibling;//包含了空白节点。前一个节点是空白文本，不是div21
+    //alert(oDiv21.nodeType);
+
+    var oDiv21 = oDiv22.previousElementSibling;//前一个 元素节点（前一个元素兄弟节点）
+    var oDiv23 = oDiv22.nextElementSibling;//23
+
+    var oDivChild = oDiv.children;//元素节点
+    function getElementChildren(dom) {
+        var elements = [];
+        var nodes = dom.childNodes;//所有节点 包含了空白节点
+        for (var i = 0; i < nodes.length; i++) {
+            if (nodes[i].nodeType == 1) {
+                //元素节点
+                elements.push(nodes[i]);
+            }
+        }
+
+        return elements;
+    }
+    //兼容
+    function getFirstChild(dom) {
+        /**
+         * dom.firstChild //
+         */
+        if(dom.firstElementChild){
+            return dom.firstElementChild;
+        }else{
+            return dom.firstChild;
+        }
+    } //0 开始，
+    //如果超出，返回 undefind
+    function getChildByIndex(dom,index){
+        var nodes=dom.childNodes;
+        var elements=[];
+        for(var i=0;i<nodes.length;i++){
+            if(nodes[i].nodeType==1){
+                //元素节点；
+                elements.push(nodes[i]);
+            }
+        }
+        return elements[index];  //index 有可能溢出；   elements 元素个数 小于 index
+    }
+
+    var oDiv21=getChildByIndex(oDiv,0);
+
+    //获取dom 的第几个 子节点（元素节点）；
+    function getChildByIndex(dom,index){
+        var elements=[];
+        var nodes=dom.childNodes; //所有的节点  包含了 空白节点
+        for(var i=0;i<nodes.length;i++){
+            if(nodes[i].nodeType==1){
+                //元素节点
+                elements.push(nodes[i]);
+            }
+        }
+        return elements[index];
+    }
+
+    function random(min ,max){
+
+    }
+    var oDivChild3=getChildByIndex(oDiv,3);
+
+
+
+</script>
+</body>
+</html>

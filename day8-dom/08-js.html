@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性节点</title>
+</head>
+<body>
+<div id="div1" style="width: 100px;height: 100px; background: red">
+
+</div>
+<script>
+    var oDiv=document.getElementById("div1");
+    var attr=oDiv.attributes;//集合
+    var oDivAttrID=oDiv.attributes[0];//object 属性节点 node
+    alert(oDivAttrID.nodeName);//id
+    alert(oDivAttrID.nodeType);//2
+    alert(oDivAttrID.nodeValue);//div1 string
+
+    var oDivAttrIDex=oDiv.attributes["style"];//属性节点 node object
+    alert(oDivAttrIDex.nodeName);//style
+    alert(oDivAttrIDex.nodeType);//2
+    alert(oDivAttrIDex["nodeValue"]);//width: 100px;height: 100px; background: red
+
+    alert(oDiv.id);//oDiv.id 返回的是什么 nodevalue
+    var param="id";
+    alert(oDiv.param);//获取oDiv下面 属性名称为id的属性值／
+
+    alert(oDiv["id"]);//获取oDiv这个对象的 属性名称为id的属性值
+    alert(oDiv[param]);
+
+
+</script>
+
+</body>
+</html>
