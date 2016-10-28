@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>create  cookies</title>
+</head>
+<body>
+<div>
+    用户名:<span id="spanUserName">123</span></div>
+<input id="txtname" type="text">
+<input id="bt1" type="button" value="登录"/>
+<script>
+    //创建cookie
+    //格式：都有哪些主要属性
+    //键 值 expirse=失效时间
+    //
+    var btn=document.getElementById("bt1");
+    var onclick=function () {
+        //获取input 的用户名 value
+        //存入cookie；保存在本地。下次打开这个网页的时候，我们可以通过JS代码，获取本地的cookie
+        //获取cookie之后 渲染到页面
+        var loginNameValue=document.getElementById("txtname").value;
+        //定义一个name loginName
+        document.cooki="loginName="+loginNameValue;
+        //存储一个cookie cookie名字加loginName;
+        document.getElementById("spanUserName").innerHTML=loginNameValue;
+    }
+//页面加载的时候，需要去从cookie中看有没有登陆过的用户
+    var str=document.cookie;
+    var arrStr=str.split("; ");
+    for(var i=0;i<arrStr.length;i++){
+        var arrItem=arrStr.split("=");
+        if(arrItem[0]=="loginName"){
+            document.getElementById("spanUserName").innerHTML=arrItem[1];
+        }
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>封装cookies</title>
+</head>
+<body>
+<script>
+    //
+    function getCookie(cookieName) {
+        var cookieValue="";
+        var strCookies=document.cookie;
+        var arrCookies=strCookies.split("; ");
+        for(var i=0;i<arrCookies.length;i++){
+            var arrItem=arrCookies[i].split("=");
+            if(arrItem[0]==cookieName){
+                cookieValue=arrItem[1];
+            }
+            return cookieValue;
+        }
+    }
+    var cookies=getCookie("loginName");
+
+
+    //创建了一个 cookie；cookie 名字就是nametest  value  123  过期时间也是：7天后；
+
+    //过期时间；
+    //date 表示的是从先往后几天  过期；
+    function createCookie(name,value,expiredays) {
+        var date=new Date();
+        date.setDate(date.getDate()+expiredays);
+        document.cookie=name+"="+value+";expires="+date;
+    }
+    createCookie("name","123",7);
+    createCookie("loginName","gao",30);
+
+</script>
+
+</body>
+</html>

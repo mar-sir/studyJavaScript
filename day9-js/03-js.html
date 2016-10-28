@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cookie 过期</title>
+</head>
+<body>
+<div>用户名：<span id="spanUserName">123</span></div>
+<script>
+    var dateNow = new Date();//当前时间
+    dateNow.setDate(dateNow.getDate() + 7);//7 天时候的时间
+    document.cookie = "nametest=123;expires=" + dateNow;//7天之后过期；  当7天之后，你浏览已启动，就会把这个cookie删除；
+    //利用过期的机制完成删除功能
+    //把过期的时间，设置成昨天；
+    var date2 = new Date();
+    date2.setDate(date2.getDate() - 1);
+    document.cookie = "nametest=;expires=" + date2;
+    //兼容
+    //页面加载的时候，需要去cookie中看有没有登录过的用户
+    var strCookies = document.cookie;
+    var arrCookies = strCookies.split("; ");
+    for (var i = 0; i < arrCookies.length; i++) {
+        var arrItem = arrCookies[i].split("=");
+        if (arrItem[0] == "loginName") {
+            document.getElementById("spanUserName").innerHTML = arrItem[1];
+        }
+    }
+
+</script>
+
+</body>
+</html>
